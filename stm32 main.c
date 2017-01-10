@@ -180,3 +180,14 @@ void f(int Vt,int a,int d,int S)
  
   }
 }
+void TIM2_IRQHandler(void)
+{   
+  if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
+  {
+    TIM_ClearFlag(TIM2, TIM_FLAG_Update);
+    GPIO_WriteBit(GPIOA,GPIO_Pin_3,(BitAction)(1-GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_3)));
+    StepCount=StepCount+1;
+    f(300,10,10,4000);
+    
+  }
+}
