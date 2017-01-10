@@ -1,1 +1,3 @@
 # motion
+借鉴步进电机的加减速算法进行这个例子的处理
+当达到目标位置时，把new_cmd.Done设为true，主程序检测到new_cmd.Done为true时将结束运行
